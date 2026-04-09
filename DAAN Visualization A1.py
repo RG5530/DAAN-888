@@ -5,13 +5,10 @@
 
 
 #pip install streamlit
-import streamlit as st
 import pandas as pd
-import io
 #Load files
 import numpy as np
 import os
-import seaborn as sns
 
 
 
