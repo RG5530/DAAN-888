@@ -1,18 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[8]:
 
 
 #pip install streamlit
 import pandas as pd
 #Load files
-import numpy as np
 import os
 
 
 
-# In[6]:
+# In[9]:
 
 
 # Upload datasets
@@ -34,7 +33,7 @@ View_data.columns
 View_data.rename(columns={'Zip_Code': 'Zip Code'}, inplace=True)
 
 
-# In[7]:
+# In[10]:
 
 
 #Monthly and View Data merged
