@@ -10,7 +10,6 @@ import pandas as pd
 import io
 #Load files
 import numpy as np
-import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
