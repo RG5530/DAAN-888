@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[9]:
-# In[9]:
-
 import ast
 from io import StringIO
 from pathlib import Path
@@ -212,7 +208,7 @@ with tab_viz:
     st.header("Visualizations")
 
     # --- Monthly: ZHVI time series (history vs forecast) ---
-if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
+    if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
         m_sub = Monthly_data[
             Monthly_data["Zip Code"].astype(str).isin(selected_zips)
         ].dropna(subset=["Date"])
@@ -240,7 +236,7 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
             if band_cols:
                 band = (
                     alt.Chart(m_sub)
-                     .mark_area(opacity=0.2)
+                    .mark_area(opacity=0.2)
                     .encode(
                         alt.X("Date:T"),
                         alt.Y("ZHVI_Upper:Q", title="ZHVI"),
@@ -253,7 +249,7 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
                 st.altair_chart(base, use_container_width=True)
         else:
             st.warning("No rows for the selected zip code(s).")
- elif not selected_zips:
+    elif not selected_zips:
         st.info("Select at least one zip code in the sidebar to plot monthly ZHVI.")
 
     # --- View: ZHVI over time (one zip) ---
@@ -262,7 +258,7 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
         vz = View_data.dropna(subset=["Data_Date", "Target_ZHVI"])
         if "Zip Code" in vz.columns:
             v_zips = sorted(vz["Zip Code"].dropna().astype(str).unique())
-             pick_v = st.selectbox("Zip for View time series", v_zips, key="view_ts_zip")
+            pick_v = st.selectbox("Zip for View time series", v_zips, key="view_ts_zip")
             vz_one = vz[vz["Zip Code"].astype(str) == pick_v]
         else:
             vz_one = vz
@@ -292,7 +288,7 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
                 tooltip=[x_col, y_col]
                 + ([c for c in ["Zip Code", "Data_Date"] if c in View_data.columns]),
             )
-             .properties(height=320)
+            .properties(height=320)
             .interactive()
         )
         st.altair_chart(sc, use_container_width=True)
@@ -368,23 +364,23 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
             .interactive()
         )
         st.altair_chart(pred_chart, use_container_width=True)
-        with tab_tables:
-    st.subheader("View_data preview")
-    st.dataframe(View_data.head(20), use_container_width=True)
+    with tab_tables:
+        st.subheader("View_data preview")
+        st.dataframe(View_data.head(20), use_container_width=True)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader("View_data.describe()")
-        st.dataframe(View_data.describe(include="all"), use_container_width=True)
-    with col2:
-        st.subheader("View_data.columns")
-        st.write(list(View_data.columns))
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("View_data.describe()")
+            st.dataframe(View_data.describe(include="all"), use_container_width=True)
+        with col2:
+            st.subheader("View_data.columns")
+            st.write(list(View_data.columns))
 
-    with st.expander("Monthly_data preview"):
-        st.dataframe(Monthly_data.head(20), use_container_width=True)
+        with st.expander("Monthly_data preview"):
+            st.dataframe(Monthly_data.head(20), use_container_width=True)
 
-    with st.expander("Predictions_data preview"):
-        st.dataframe(Predictions_data.head(20), use_container_width=True)
+        with st.expander("Predictions_data preview"):
+            st.dataframe(Predictions_data.head(20), use_container_width=True)
 
 
 
