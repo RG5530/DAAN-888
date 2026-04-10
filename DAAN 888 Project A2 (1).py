@@ -2,6 +2,7 @@
 # coding: utf-8
 
 # In[9]:
+# In[9]:
 
 import ast
 from io import StringIO
@@ -384,7 +385,6 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
 
     with st.expander("Predictions_data preview"):
         st.dataframe(Predictions_data.head(20), use_container_width=True)
-
 
 
 
