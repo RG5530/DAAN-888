@@ -198,7 +198,7 @@ if school_metrics_for_zhvi and "Target_ZHVI" in View_data.columns:
         options=school_metrics_for_zhvi,
         index=school_metrics_for_zhvi.index(_def_school),
     )
-    elif "Target_ZHVI" not in View_data.columns:
+elif "Target_ZHVI" not in View_data.columns:
     st.sidebar.caption("Target_ZHVI missing — schools chart disabled.")
 else:
     st.sidebar.caption("No school numeric columns found in View data.")
