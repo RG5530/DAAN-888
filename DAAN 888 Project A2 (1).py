@@ -253,7 +253,7 @@ if zip_col_monthly and selected_zips and "ZHVI" in Monthly_data.columns:
                 st.altair_chart(base, use_container_width=True)
         else:
             st.warning("No rows for the selected zip code(s).")
-        elif not selected_zips:
+ elif not selected_zips:
         st.info("Select at least one zip code in the sidebar to plot monthly ZHVI.")
 
     # --- View: ZHVI over time (one zip) ---
