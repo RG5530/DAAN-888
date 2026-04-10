@@ -73,7 +73,7 @@ def load_predictions(file_or_path):
             file_or_path.seek(0)
     else:
         content = Path(file_or_path).read_text(encoding="utf-8", errors="replace")
-            rows = []
+        rows = []
     for line in content.splitlines():
         line = line.strip()
         if not line or not line.startswith("["):
